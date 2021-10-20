@@ -77,7 +77,7 @@ void {{classname}}Request::{{nickname}}Request({{#hasPathParams}}{{#pathParams}}
     {{^isMap}}
     {{#isPrimitiveType}}{{^isFreeFormObject}}
     {{{dataType}}} {{paramName}};
-    ::{{cppNamespace}}::fromStringValue(QString(socket->readAll()), {{paramName}});
+    {{paramName}}.fromByteArray(socket->readAll());
     {{/isFreeFormObject}}{{/isPrimitiveType}}
     {{#isFreeFormObject}}
     {{{dataType}}} {{paramName}};
